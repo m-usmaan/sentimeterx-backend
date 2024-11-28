@@ -1,0 +1,64 @@
+# User-specific stuff:
+.idea/
+.vscode/
+.DS_Store
+.idea_modules/
+
+
+### Python template
+__pycache__/
+
+
+# Distribution / packaging
+.Python
+env/
+build/
+
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# Django stuff:
+*.log
+django_cache
+
+# pyenv
+.python-version
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+.venv/
+
+media/
+static/admin
+static/channels
+static/debug_toolbar
+static/rest_framework
+static/css/*.css
+static/css/*.css.map
+static/import_export
+
+# log files
+.log
+
+/node_modules
+
+# Database
+*.sqlite3
+
+# env files
+*.env
+*.env.*
+!.env.template
