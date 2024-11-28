@@ -19,7 +19,9 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 ENVIRONMENT = str(os.getenv('ENVIRONMENT'))
-
+PROD = ENVIRONMENT == 'prod'
+STAGE = ENVIRONMENT == 'stage'
+LOCAL = ENVIRONMENT == 'local'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/

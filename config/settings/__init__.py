@@ -1,10 +1,10 @@
 from config.settings.base import *
 try:
-    if ENVIRONMENT == 'local':
+    if LOCAL:
         from config.settings.local import *
-    elif ENVIRONMENT == 'stage':
+    elif STAGE:
         from config.settings.stage import *
-    elif ENVIRONMENT == 'prod':
+    elif PROD:
         from config.settings.prod import *
 except ImportError:
     raise
