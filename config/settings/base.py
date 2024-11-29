@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
-from pathlib import Path
 
 load_dotenv()
 
@@ -51,7 +51,10 @@ THIRD_PARTY_APPS = [
     'simple_history',
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'api',
+    'api.organizations'
+]
 
 INSTALLED_APPS = DJANGO_DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
