@@ -8,6 +8,7 @@ filelock==3.16.1
 identify==2.6.3
 isort==5.13.2
 nodeenv==1.9.1
+pillow==11.0.0
 platformdirs==4.3.6
 pre_commit==4.0.1
 psycopg2==2.9.10  # Make sure, the folder which contains `pg_config` exe, is added to PATH.

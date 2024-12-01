@@ -23,6 +23,9 @@ PROD = ENVIRONMENT == 'prod'
 STAGE = ENVIRONMENT == 'stage'
 LOCAL = ENVIRONMENT == 'local'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -53,7 +56,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'api',
-    'api.organizations'
+    'api.accounts',
+    'api.organizations',
 ]
 
 INSTALLED_APPS = DJANGO_DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -108,6 +112,9 @@ DATABASES = {
         'NAME': DATABASE_NAME,
     },
 }
+
+# Custom User Model Configuration
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Password validation
