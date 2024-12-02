@@ -9,6 +9,7 @@ class Chat(models.Model):
     unique_uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="chats")
     created_at = models.DateTimeField(auto_now_add=True)
+    user_query = models.CharField()
     summary = models.JSONField(blank=True, null=True)
     detailed_analysis = models.JSONField(blank=True, null=True)
     visualization = models.JSONField(blank=True, null=True)
@@ -22,4 +23,4 @@ class Chat(models.Model):
         ]
 
     def __str__(self):
-        return f"Chat {self.unique_uuid} for {self.user.username}"
+        return f"[{self.user.username}]: {self.user_query}"
