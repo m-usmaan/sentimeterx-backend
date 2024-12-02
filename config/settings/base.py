@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'api',
     'api.accounts',
+    'api.chats',
     'api.organizations',
 ]
 
