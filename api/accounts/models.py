@@ -4,7 +4,11 @@ from django.db import models
 from api.organizations.models import Organization
 from utils.validators import CustomUsernameValidator
 from django.core.files.storage import FileSystemStorage
+import zoneinfo
+from django.conf import settings
 
+
+TIMEZONES_CHOICES = [(tz, tz) for tz in zoneinfo.available_timezones()]
 
 class UserManager(BaseUserManager):
     def _create_user(self, username, email, password, **extra_fields):
@@ -58,3 +62,28 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE, null=True, blank=True)
+
+    class Meta:
+        db_table = 'users'
+    
+    def __str__(self):
+        result = f'{self.username}'
+        if self.organization:
+            result += f' | {self.organization}'
+        
+        return result
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
+    timezone = models.CharField(
+        max_length=50,
+        default=settings.TIME_ZONE,
+        choices=TIMEZONES_CHOICES,
+    )
+
+    class Meta:
+        db_table = 'user_profiles'
+    
+    def __str__(self):
+        return f'{self.user}'
