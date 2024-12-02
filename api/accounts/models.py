@@ -75,7 +75,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, primary_key=True, on_delete=models.CASCADE, related_name='profile')
     timezone = models.CharField(
         max_length=50,
         default=settings.TIME_ZONE,
