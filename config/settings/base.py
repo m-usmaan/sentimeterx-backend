@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'simple_history',
     'knox',
+    'corsheaders'
 ]
 
 LOCAL_APPS = [
@@ -73,6 +74,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'api.urls'
