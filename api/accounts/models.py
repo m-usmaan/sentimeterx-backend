@@ -1,12 +1,13 @@
+import zoneinfo
+
+from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
+from django.core.files.storage import FileSystemStorage
 from django.db import models
+
 from api.organizations.models import Organization
 from utils.validators import CustomUsernameValidator
-from django.core.files.storage import FileSystemStorage
-import zoneinfo
-from django.conf import settings
-
 
 TIMEZONES_CHOICES = [(tz, tz) for tz in zoneinfo.available_timezones()]
 
@@ -65,6 +66,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         db_table = 'users'
+    
+    @property
+    def full_name(self):
+        return f'{(self.first_name or "").strip()} {(self.last_name or "").strip()}'.strip()
     
     def __str__(self):
         result = f'{self.username}'

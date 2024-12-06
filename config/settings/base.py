@@ -148,6 +148,9 @@ REST_FRAMEWORK = {
     ],
 }
 
+REST_KNOX = {
+  'USER_SERIALIZER': 'api.accounts.serializers.UserSerializer',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
