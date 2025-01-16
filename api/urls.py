@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import include, path
 from api.accounts import urls as accounts_urls
 from api.chats import urls as chats_urls
+from api.chats.views import DataSetsAPIView, DatasetFiltersView
 
 
 all_patterns = [
     path(r'accounts/', include(accounts_urls)),
     path(r'chats/', include(chats_urls)),
+    path('data-sets/', DataSetsAPIView.as_view()),
+    path('data-sets/<str:dataset_id>/filters/', DatasetFiltersView.as_view()),
 ]
 urlpatterns = [
     path('admin/', admin.site.urls),
