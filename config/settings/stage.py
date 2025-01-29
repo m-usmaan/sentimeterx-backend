@@ -1,2 +1,4 @@
-CORS_ALLOW_ALL_ORIGINS = False
-ALLOWED_HOSTS = ['*']  # Change this * to frontend url
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    # Allow all subdomains under demo.sentimeter.io
+    r"^https:\/\/.*\.demo\.sentimeter\.io$",
+]
