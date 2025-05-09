@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic import RedirectView
 from api.accounts import urls as accounts_urls
 from api.chats import urls as chats_urls
 from api.chats.views import DataSetsAPIView, DatasetFiltersView
@@ -28,6 +29,7 @@ all_patterns = [
     path('data-sets/<str:dataset_id>/filters/', DatasetFiltersView.as_view()),
 ]
 urlpatterns = [
+    path('', RedirectView.as_view(url='/admin/', permanent=True)),
     path('admin/', admin.site.urls),
     path(r'api/', include(all_patterns))
 ]
